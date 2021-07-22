@@ -37,18 +37,18 @@ steps:
     restoreSolution: '$(solution)'
 
 
-- task: SonarQubePrepare@4
-  inputs:
-    SonarQube: 'Sonarqube Osanam Azure'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'Unyleya_-_DevOps_Unyleya_-_DevOps'
-    cliProjectName: 'Unyleya - DevOps'
-    cliSources: '$(System.DefaultWorkingDirectory)'
-
-- powershell: |
-    $params = "$env:SONARQUBE_SCANNER_PARAMS" -replace '"sonar.branch.name":"[\w/,-.]*"\,?'
-    Write-Host "##vso[task.setvariable variable=SONARQUBE_SCANNER_PARAMS]$params"
+#- task: SonarQubePrepare@4
+#  inputs:
+#    SonarQube: 'Sonarqube Osanam Azure'
+#    scannerMode: 'CLI'
+#    configMode: 'manual'
+#    cliProjectKey: 'Unyleya_-_DevOps_Unyleya_-_DevOps'
+#    cliProjectName: 'Unyleya - DevOps'
+#    cliSources: '$(System.DefaultWorkingDirectory)'
+#
+#- powershell: |
+#    $params = "$env:SONARQUBE_SCANNER_PARAMS" -replace '"sonar.branch.name":"[\w/,-.]*"\,?'
+#    Write-Host "##vso[task.setvariable variable=SONARQUBE_SCANNER_PARAMS]$params"
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -61,11 +61,11 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: SonarQubeAnalyze@4
+#- task: SonarQubeAnalyze@4
 
-- task: SonarQubePublish@4
-  inputs:
-    pollingTimeoutSec: '300'
+#- task: SonarQubePublish@4
+#  inputs:
+#    pollingTimeoutSec: '300'
 
 - task: PublishPipelineArtifact@1
   inputs:
