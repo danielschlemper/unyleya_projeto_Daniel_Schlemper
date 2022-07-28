@@ -27,7 +27,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'mkdir d:\a\1\
+    script: 'mkdir 
 unyleya_projeto_Daniel_Schlemper
 ' 
     #workingDirectory: # Optional
