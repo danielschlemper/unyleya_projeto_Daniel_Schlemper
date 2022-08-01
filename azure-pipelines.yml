@@ -27,7 +27,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'mkdir d:\a\1\MobEAD' 
+    script: 'mkdir d:\a\1\unyleya_projeto_Daniel_Schlemper' 
     #workingDirectory: # Optional
     #failOnStderr: false # Optional
 
@@ -61,6 +61,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+
 #- task: SonarQubeAnalyze@4
 
 #- task: SonarQubePublish@4
@@ -70,6 +71,15 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs:
        artifactName: # 'drop'
+       
+- task: Docker@2
+  displayName: 'Push'
+  inputs: 
+    command: buildAndPush
+    containerRegistry: 'Docker Hub'
+    repository: 'dschlemper/unyleya_projeto_daniel_schlemper'       
+
+
 
  
 
