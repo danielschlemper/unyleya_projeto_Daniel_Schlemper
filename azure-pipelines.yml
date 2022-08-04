@@ -77,7 +77,7 @@ steps:
   inputs: 
     command: buildAndPush
     containerRegistry: 'Docker Hub'
-    repository: 'dschlemper/unyleya_projeto_daniel_schlemper'       
+    repository: 'dschlemper/teste2'       
 
 
 
